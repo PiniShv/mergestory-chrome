@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "MergeStory",
+  "version": "0.1.0",
+  "description": "Play the MergeStory video inside the pull request page.",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://github.com/*"
+      ],
+      "js": [
+        "embed.js",
+        "content.js"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "player.html"
+      ],
+      "matches": [
+        "https://github.com/*"
+      ]
+    }
+  ],
+  "permissions": [
+    "declarativeNetRequestWithHostAccess"
+  ],
+  "host_permissions": [
+    "https://www.youtube-nocookie.com/*"
+  ]
+}
