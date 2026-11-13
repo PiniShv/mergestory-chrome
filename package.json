@@ -12,7 +12,7 @@
     "package": "rm -f mergestory-chrome.zip && zip -q -r -X mergestory-chrome.zip manifest.json embed.js content.js player.html player.js icons LICENSE NOTICE"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.6.4"
+    "@biomejs/biome": "2.6.6"
   },
   "engines": {
     "node": ">=22.12"
