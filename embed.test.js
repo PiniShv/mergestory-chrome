@@ -1,9 +1,18 @@
 const assert = require('node:assert');
 const { embedUrl } = require('./embed.js');
 
-assert.equal(embedUrl('https://www.youtube.com/watch?v=aTvCur8bKgc'), 'https://www.youtube-nocookie.com/embed/aTvCur8bKgc?autoplay=1');
-assert.equal(embedUrl('https://youtu.be/aTvCur8bKgc'), 'https://www.youtube-nocookie.com/embed/aTvCur8bKgc?autoplay=1');
-assert.equal(embedUrl('https://drive.google.com/file/d/1AbCdEfGhIjKlMnOp/view?usp=sharing'), 'https://drive.google.com/file/d/1AbCdEfGhIjKlMnOp/preview');
+assert.equal(
+  embedUrl('https://www.youtube.com/watch?v=aTvCur8bKgc'),
+  'https://www.youtube-nocookie.com/embed/aTvCur8bKgc?autoplay=1',
+);
+assert.equal(
+  embedUrl('https://youtu.be/aTvCur8bKgc'),
+  'https://www.youtube-nocookie.com/embed/aTvCur8bKgc?autoplay=1',
+);
+assert.equal(
+  embedUrl('https://drive.google.com/file/d/1AbCdEfGhIjKlMnOp/view?usp=sharing'),
+  'https://drive.google.com/file/d/1AbCdEfGhIjKlMnOp/preview',
+);
 for (const bad of [
   'not a url',
   'http://www.youtube.com/watch?v=aTvCur8bKgc',
@@ -14,5 +23,6 @@ for (const bad of [
   'https://drive.google.com/drive/folders/1AbCdEfGhIjKlMnOp',
   'https://example.com/watch.html',
   'javascript:alert(1)',
-]) assert.equal(embedUrl(bad), null, bad);
+])
+  assert.equal(embedUrl(bad), null, bad);
 console.log('ok');

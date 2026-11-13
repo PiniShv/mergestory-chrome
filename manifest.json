@@ -3,31 +3,17 @@
   "name": "MergeStory",
   "version": "0.1.0",
   "description": "Play the MergeStory video inside the pull request page.",
+  "homepage_url": "https://github.com/PiniShv/mergestory-chrome",
+  "icons": {
+    "16": "icons/16.png",
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
   "content_scripts": [
-    {
-      "matches": [
-        "https://github.com/*"
-      ],
-      "js": [
-        "embed.js",
-        "content.js"
-      ]
-    }
+    { "matches": ["https://github.com/*"], "js": ["embed.js", "content.js"], "run_at": "document_start" }
   ],
-  "web_accessible_resources": [
-    {
-      "resources": [
-        "player.html"
-      ],
-      "matches": [
-        "https://github.com/*"
-      ]
-    }
-  ],
-  "permissions": [
-    "declarativeNetRequestWithHostAccess"
-  ],
-  "host_permissions": [
-    "https://www.youtube-nocookie.com/*"
-  ]
+  "web_accessible_resources": [{ "resources": ["player.html"], "matches": ["https://github.com/*"] }],
+  "permissions": ["declarativeNetRequestWithHostAccess"],
+  "host_permissions": ["https://www.youtube-nocookie.com/*"]
 }

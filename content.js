@@ -22,7 +22,8 @@ document.addEventListener(
       player.title = 'MergeStory video';
       player.allow = 'autoplay; fullscreen; picture-in-picture; encrypted-media';
       player.allowFullscreen = true;
-      player.style.cssText = 'display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:6px;margin:8px 0';
+      player.style.cssText =
+        'display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:6px;margin:8px 0';
       // GitHub only allows its own frames. A page of this extension is allowed, and it holds the player.
       player.src = `${chrome.runtime.getURL('player.html')}#${encodeURIComponent(link.href)}`;
       (link.closest('p') ?? link).after(player);
