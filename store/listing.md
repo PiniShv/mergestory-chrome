@@ -39,8 +39,9 @@ with them.
 ## Privacy practices
 
 - **Single purpose:** Play the MergeStory video of a pull request inside the pull request page.
-- **Host permission `github.com` (content script):** The extension finds a click on the MergeStory
-  video link in a pull request and puts the video player in the comment.
+- **Host permission `github.com` (content script):** On a pull request page, the extension finds a
+  click on a YouTube or Google Drive video link in a comment that names MergeStory, and puts the
+  video player in the comment.
 - **Host permission `www.youtube-nocookie.com`:** The video player loads from this address.
 - **`declarativeNetRequestWithHostAccess`:** YouTube refuses to play a request that has no Referer
   header, and an extension page sends none. One session rule adds the header, only on video frames

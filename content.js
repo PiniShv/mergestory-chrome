@@ -1,6 +1,5 @@
-// Click to play: nothing loads from a video host until the reviewer clicks the MergeStory link.
+// Click to play: nothing loads from a video host until the reviewer clicks a video link.
 // One listener on the document also covers GitHub's in-page navigation.
-const WATCH_TEXT = /^Watch the (?:[\w-]+ )?MergeStory$/;
 
 document.addEventListener(
   'click',
@@ -9,16 +8,23 @@ document.addEventListener(
     if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     const link = event.target.closest?.('.markdown-body a[href]');
     if (!link) return;
-    const isWatchLink =
-      WATCH_TEXT.test(link.textContent.trim()) || link.querySelector('img[alt="MergeStory video preview"]');
-    if (!isWatchLink || !embedUrl(link.href)) return;
+    // A team can word its comment as it likes, so the link text is not checked. A video link counts
+    // when it is on a pull request page and the text block around it names MergeStory.
+    if (!/^\/[^/]+\/[^/]+\/pull\/\d+/.test(location.pathname)) return;
+    const body = link.closest('.markdown-body');
+    if (!body.textContent.includes('MergeStory') || !embedUrl(link.href)) return;
     event.preventDefault();
 
-    const body = link.closest('.markdown-body');
     let player = body.querySelector('iframe.mergestory-player');
+    // A second link to another video gets its own player, in its own place.
+    if (player && player.dataset.href !== link.href) {
+      player.remove();
+      player = null;
+    }
     if (!player) {
       player = document.createElement('iframe');
       player.className = 'mergestory-player';
+      player.dataset.href = link.href;
       player.title = 'MergeStory video';
       player.allow = 'autoplay; fullscreen; picture-in-picture; encrypted-media';
       player.allowFullscreen = true;

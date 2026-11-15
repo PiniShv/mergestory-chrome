@@ -12,6 +12,8 @@ comment. You stay on the page, next to the code.
 
 - **Works on `github.com`.** Other git hosts come when MergeStory can post to them.
 - **Plays YouTube and Google Drive videos.** Any other link opens as before.
+- **Works with your own wording.** A video link plays in place when the comment or description around
+  it names MergeStory.
 - **Click to play.** Nothing loads from a video host until you click. YouTube plays through
   `youtube-nocookie.com`.
 - **Your shortcuts still work.** Ctrl-click or Cmd-click opens the video in a new tab.
@@ -34,7 +36,7 @@ To install from source:
 
 | Permission | Why |
 | --- | --- |
-| Read `github.com` pages | To see a click on the MergeStory link and put the player in the comment. |
+| Read `github.com` pages | To see a click on a video link in a MergeStory comment on a pull request page, and put the player there. |
 | `youtube-nocookie.com` and header changes | YouTube refuses to play a request that has no `Referer` header, and an extension page sends none. The extension adds one that names the MergeStory site, only for the players it opens. |
 
 ## How it works

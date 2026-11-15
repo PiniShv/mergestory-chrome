@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "MergeStory",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Play the MergeStory video inside the pull request page.",
   "homepage_url": "https://github.com/PiniShv/mergestory-chrome",
   "icons": {
