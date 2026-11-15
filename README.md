@@ -19,13 +19,16 @@ comment. You stay on the page, next to the code.
 
 ## Install
 
-The Chrome Web Store listing is on its way. Until then, install from source:
+Install it from the
+[Chrome Web Store](https://chromewebstore.google.com/detail/mergestory/kgchkgdmnjfbkabmmcnmhjkndehhcehl).
+
+It should also work in other Chromium browsers, such as Edge and Brave.
+
+To install from source:
 
 1. Download this repository, or clone it.
 2. Open `chrome://extensions` and turn on **Developer mode**.
 3. Choose **Load unpacked** and pick the folder.
-
-It should also work in other Chromium browsers, such as Edge and Brave.
 
 ## Permissions
 
